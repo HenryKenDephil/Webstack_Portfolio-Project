@@ -5,10 +5,10 @@ from .models import Subject, Course, Module
 @admin.register(Subject)
 class SubjectAdmin(admin.ModelAdmin):
     list_display = ['title', 'slug']
-    prepopulated_fields = {'slug': ('title')}
+    prepopulated_fields = {'slug': ('title', )}
 
 
-class ModuleInline(admin.ModelAdmin):
+class ModuleInline(admin.StackedInline):
     model = Module
 
 
