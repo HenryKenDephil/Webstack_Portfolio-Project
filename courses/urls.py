@@ -10,4 +10,6 @@ urlpatterns = [
          name= 'edit_course'),
     path('<pk>/delete/', views.CourseDeleteView.as_view(),
          name= 'delete_course'),
+     path('<pk>/module/', views.CourseModuleUpdateView.as_view(),
+          name = 'course_module_update'),
 ]
