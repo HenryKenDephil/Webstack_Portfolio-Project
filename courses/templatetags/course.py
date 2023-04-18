@@ -4,7 +4,7 @@ from django import template
 retrieving attributes/variables using underscore
 that is prevented by django template'''
 
-register = template.Library.register()
+register = template.Library()
 
 @register.filter
 def model_name(obj):
