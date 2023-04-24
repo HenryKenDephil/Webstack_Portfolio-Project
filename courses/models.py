@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey 
 from.fields import OrderField
+from django.template.loader import render_to_string
 
 class Subject(models.Model):
     title = models.CharField(max_length=200)
@@ -26,6 +27,10 @@ class Course(models.Model):
     slug = models.SlugField(max_length=200, unique=True)
     overview = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
+
+    students = models.ManyToManyField(User,
+                                      related_name='courses_joined',
+                                      blank=True)
 
     class Meta:
         ordering = ['-created_on']
@@ -101,3 +106,7 @@ class Video(ItemBase):
     url = models.URLField()
 
 
+class ItemBase(models.Model):
+    def render(self):
+        return render_to_string(f'courses/content/{self._meta.model_name}.html',
+                                {'item': self})

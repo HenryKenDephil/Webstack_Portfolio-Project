@@ -14,6 +14,7 @@ from django.apps  import apps
 from braces.views import CsrfExemptMixin, JsonRequestResponseMixin
 from django.db.models import Count
 from django.views.generic.detail import DetailView
+from students.forms import CourseEnrollForm
 # Create your views here.
 #use maxins for mutliple class inheritance
 
@@ -205,7 +206,7 @@ class CourseListView(TemplateResponseMixin, View):
     model = Course
     template_name = 'courses/course/list.html'
     def get(self, request, subject = None):
-        subjects = Subject.objectsannotate(total_courses =\
+        subjects = Subject.objects.annotate(total_courses =\
                                            Count('courses'))
         courses = Course.objects.annotate(total_modules =\
                                           Count('modules'))
@@ -224,3 +225,13 @@ class CourseDetailView(DetailView):
     template_name = 'courses/course/detail.htmnl'
     model = Course
     template_name = 'courses/course/detail.html'
+
+class CourseDetailView(DetailView):
+    model = Course
+    template_name = 'courses/course/detail.htmnl'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['enroll_form'] = CourseEnrollForm(
+                                    initial={'course':self.object})
+        return context
