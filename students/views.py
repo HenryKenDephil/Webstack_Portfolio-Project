@@ -7,6 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import CourseEnrollForm
 from django.views.generic.list import ListView
 from courses.models import Course
+from django.contrib import messages
 from django.views.generic.detail import DetailView
 
 # Create your views here.
@@ -20,8 +21,12 @@ class StudentRegistrationView(CreateView):
         result = super().form_valid(form)
         cd = form.cleaned_data
         user = authenticate(username=cd['username'],
-                            password=cd['password'])
+                            email=cd['email'],
+                            password1=cd['password1'],
+                            password2=cd['password2'])
         login(self.request, user)
+        messages.success(self, 'Registration successful')
+        messages.error(self, 'Registration failed. username or password is incorrect')
         return result
     
 

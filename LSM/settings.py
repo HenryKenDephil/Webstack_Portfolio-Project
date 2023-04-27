@@ -1,11 +1,11 @@
 from pathlib import Path
 from django.urls import reverse_lazy
-import os 
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-os.path.join(os.path.dirname(__file__) ,'../templates').replace('\\','/')
+os.path.join(os.path.dirname(__file__), '../templates').replace('\\', '/')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'courses',
+    'rest_framework',
     'students',
     'embed_video',
 ]
@@ -44,6 +45,12 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'LSM.urls'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 
 TEMPLATES = [
     {
@@ -107,7 +114,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-#media files
+# media files
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
