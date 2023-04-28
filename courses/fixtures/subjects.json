@@ -1,0 +1,163 @@
+[
+{
+  "model": "courses.subject",
+  "pk": 12,
+  "fields": {
+    "title": "Software Engineering",
+    "slug": "software-engineering"
+  }
+},
+{
+  "model": "courses.subject",
+  "pk": 13,
+  "fields": {
+    "title": "Social Sciences",
+    "slug": "social-sciences"
+  }
+},
+{
+  "model": "courses.subject",
+  "pk": 14,
+  "fields": {
+    "title": "Web Technologies",
+    "slug": "web-technologies"
+  }
+},
+{
+  "model": "courses.subject",
+  "pk": 15,
+  "fields": {
+    "title": "Business and Commerce",
+    "slug": "business-and-commerce"
+  }
+},
+{
+  "model": "courses.subject",
+  "pk": 16,
+  "fields": {
+    "title": "Environmental and Built Science",
+    "slug": "environmental-and-built-science"
+  }
+},
+{
+  "model": "courses.course",
+  "pk": 1,
+  "fields": {
+    "owner": 1,
+    "subject": 12,
+    "title": "Python Programming",
+    "slug": "python-programming",
+    "overview": "python programming for software engineers, security engineers, data engineers, machine learning and artificial inteligence",
+    "created_on": "2023-04-27T06:39:03.977Z",
+    "students": []
+  }
+},
+{
+  "model": "courses.course",
+  "pk": 2,
+  "fields": {
+    "owner": 1,
+    "subject": 13,
+    "title": "Psychology",
+    "slug": "psychology",
+    "overview": "learning psychology",
+    "created_on": "2023-04-27T06:40:16.642Z",
+    "students": []
+  }
+},
+{
+  "model": "courses.course",
+  "pk": 3,
+  "fields": {
+    "owner": 1,
+    "subject": 12,
+    "title": "Javascript Programming",
+    "slug": "javascript-programming",
+    "overview": "javascript programming",
+    "created_on": "2023-04-27T06:40:59.556Z",
+    "students": []
+  }
+},
+{
+  "model": "courses.course",
+  "pk": 4,
+  "fields": {
+    "owner": 1,
+    "subject": 12,
+    "title": "Dart and Flutters Programming",
+    "slug": "dart-and-flutters-programming",
+    "overview": "dart programming",
+    "created_on": "2023-04-27T06:41:43.945Z",
+    "students": []
+  }
+},
+{
+  "model": "courses.course",
+  "pk": 5,
+  "fields": {
+    "owner": 1,
+    "subject": 14,
+    "title": "Front-end web programming",
+    "slug": "front-end-web-programming",
+    "overview": "HTML5, CSS3 and Bootstrap5",
+    "created_on": "2023-04-27T06:42:44.175Z",
+    "students": []
+  }
+},
+{
+  "model": "courses.course",
+  "pk": 6,
+  "fields": {
+    "owner": 1,
+    "subject": 15,
+    "title": "Finance",
+    "slug": "finance",
+    "overview": "Finance and Investment",
+    "created_on": "2023-04-27T06:43:36.981Z",
+    "students": []
+  }
+},
+{
+  "model": "courses.course",
+  "pk": 7,
+  "fields": {
+    "owner": 1,
+    "subject": 16,
+    "title": "Civil Engineering",
+    "slug": "civil-engineering",
+    "overview": "civil engineering",
+    "created_on": "2023-04-27T06:44:28.296Z",
+    "students": []
+  }
+},
+{
+  "model": "courses.module",
+  "pk": 1,
+  "fields": {
+    "course": 1,
+    "title": "introduction to python",
+    "description": "",
+    "order": 0
+  }
+},
+{
+  "model": "courses.module",
+  "pk": 2,
+  "fields": {
+    "course": 1,
+    "title": "data types and data structures",
+    "description": "",
+    "order": 1
+  }
+},
+{
+  "model": "courses.module",
+  "pk": 3,
+  "fields": {
+    "course": 1,
+    "title": "object oriented programming",
+    "description": "",
+    "order": 2
+  }
+}
+]
